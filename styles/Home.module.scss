@@ -1,0 +1,63 @@
+$backdrop-color: rgba(255, 255, 255, 0.7);
+
+.logo_backdrop {
+  position: absolute;
+  z-index: 50;
+  top: 7.5vh;
+  left: 90px;
+
+  width: 250px;
+  height: 250px;
+
+  background-color: $backdrop-color;
+  border-radius: 200px;
+}
+
+.logo_container {
+  position: absolute;
+  z-index: 55;
+  top: 7.5vh;
+  left: 40px;
+
+  width: 360px; 
+  height: 255px;
+}
+
+.image_container {
+  width: 100%;
+}
+
+.logo_container, .image_container {
+  > div {
+    position: unset !important;
+  }
+
+  &_img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
+.title_container {
+  position: absolute;
+  z-index: 55;
+  top: 12vh;
+  right: 5vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 150px;
+  height: 150px;
+  
+  border-radius: 200px;
+
+  background-color: $backdrop-color;
+
+  &_text {
+    text-align: center;
+  }
+}

@@ -1,0 +1,32 @@
+.footer_wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  width: 100vw;
+  padding-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: 40vw 50vw 10vw;
+  grid-template-areas: "empty mail social";
+
+  background-color: #fff;
+
+  &_email {
+    grid-area: mail;
+    padding-top: 10px;
+    font-size: 1.5em;
+  }
+
+  &_instagram_logo {
+    grid-area: social;
+    padding-top: 5px;
+
+    &_container {
+      position: relative;
+      width: 55px;
+      height: 42px;
+    }
+  }
+}
