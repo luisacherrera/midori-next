@@ -1,0 +1,20 @@
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.image_container {
+  width: 100%;
+
+  > div {
+    position: unset !important;
+  }
+
+  &_img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
