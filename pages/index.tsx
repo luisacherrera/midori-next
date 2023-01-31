@@ -1,8 +1,9 @@
-import type { NextPage } from 'next'
-import Footer from '../components/Footer'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
+import type { NextPage } from 'next';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
+import Footer from '../components/Footer';
+import styles from '../styles/Home.module.scss';
 
 export interface ProjectCover {
   id: string;
@@ -32,9 +33,10 @@ const Home: NextPage = () => {
       imageSource: `/photos/espai-ciencia/Stands Espai Ciencia (Salo de l'Ensenyament 2018)(1).jpg`,
       projectName: `Stands Espai Ciencia (Salo de l'Ensenyament 2018)`
     }
-  ]
+  ];
 
-  const [currentProject, updateProject] = useState(projects[0])
+  const [currentProject, updateProject] = useState(projects[0]);
+  const router = useRouter();
 
 
   useInterval(()=>{
@@ -42,7 +44,7 @@ const Home: NextPage = () => {
     const isLastItem = currentIndex === projects.length - 1;
     
     isLastItem ? updateProject(projects[0]) : updateProject(projects[currentIndex + 1]);
-  }, 4000)
+  }, 4000);
 
   return (
     <>
@@ -54,7 +56,7 @@ const Home: NextPage = () => {
         <p className={styles.title_container_text}>{currentProject.projectName}</p>
       </div>
       <div className={styles.image_container}>
-        <Image className={styles.image_container_img} src={currentProject.imageSource} alt='project image' layout='fill'/>
+        <Image onClick={()=>router.push('/projecte?id=' + currentProject.id)} className={styles.image_container_img} src={currentProject.imageSource} alt='project image' layout='fill'/>
       </div>
       <Footer></Footer>
     </>
