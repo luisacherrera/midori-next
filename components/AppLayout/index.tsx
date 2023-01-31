@@ -1,6 +1,10 @@
 import Head from 'next/head'
 
-export default function AppLayout({ children }) {
+type AppLayoutProps = {
+  children: React.ReactNode
+}
+
+export default function AppLayout({ children } : AppLayoutProps) {
     return (
     <>
       <Head>
