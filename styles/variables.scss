@@ -1,0 +1,25 @@
+$backdrop-color: rgba(255, 255, 255, 0.7);
+
+// BREAKPOINTS
+$breakpoints: (
+  "small": (
+    max-width: 768px,
+  ),
+  "medium": (
+    min-width: 769px,
+  )
+  and
+  (
+    max-width: 849px,
+  ),
+  "extralarge": (
+    min-width: 1200px,
+  )
+  and
+  (
+    max-width: 1300px,
+  ),
+  "extralandscape": (
+    min-width: 1350px,
+  ),
+);

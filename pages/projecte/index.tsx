@@ -2,7 +2,7 @@
 import type { NextPage } from "next";
 import Image from 'next/image';
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import styles from "./Projecte.module.scss"
 
@@ -80,6 +80,8 @@ const Projecte: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
+  const [showMenu, updateShowMenu] = useState(false);
+
   const currentProject = projects.find((project) => project.id === id);
 
   const handleNavigation = (id: string) => {
@@ -91,11 +93,38 @@ const Projecte: NextPage = () => {
       top: document.getElementById('dummy-span')?.offsetTop,
       behavior: "smooth"
     })
+
+    updateShowMenu(!showMenu)
   };
+
+  const handleMenuVisibility = () => updateShowMenu(!showMenu)
 
   return (
     <>
       <div className={styles.wrapper}>
+        <div className={styles.logo_backdrop_mobile}></div>
+        <div onClick={()=>handleMenuVisibility()} className={styles.logo_container_mobile}>
+          <Image className={styles.logo_container_mobile_img} src='/logos/midori_logomaster.png' alt='midori logo' layout='fill'/>
+        </div>
+        {
+          showMenu && 
+          <ul className={styles.menu_list_mobile}>
+            <div onClick={()=>router.push('/')} className={styles.logo_home}>
+              <Image className={styles.logo_home_img} src='/logos/midori_logomaster.png' alt='midori logo' layout='fill'/>
+            </div>
+            {
+              projects.map(project =>
+                <li 
+                  onClick={()=>handleNavigation(project.id)} 
+                  key={project.id}
+                  className={ project.id === id ? `${styles.selected}` : '' }
+                >
+                  {project.projectName}</li>
+              )
+            }
+          </ul>
+        }
+
         <div className={styles.side_content}>
           <div onClick={()=>router.push('/')} className={styles.logo_container}>
             <Image className={styles.logo_container_img} src='/logos/midori_logomaster.png' alt='midori logo' layout='fill'/>

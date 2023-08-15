@@ -1,3 +1,6 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .footer_wrapper {
   position: fixed;
   bottom: 0;
@@ -8,7 +11,7 @@
   padding-bottom: 10px;
 
   display: grid;
-  grid-template-columns: 40vw 50vw 10vw;
+  grid-template-columns: 2vw 93vw 5vw;
   grid-template-areas: "empty mail social";
 
   background-color: #fff;
@@ -27,6 +30,16 @@
       position: relative;
       width: 55px;
       height: 42px;
+    }
+  }
+
+  @include media('small') {
+    grid-template-columns: 85vw 15vw;
+    grid-template-areas: "mail social";
+
+    &_email {
+      padding-left: 35px;
+      font-size: 1.4em;
     }
   }
 }

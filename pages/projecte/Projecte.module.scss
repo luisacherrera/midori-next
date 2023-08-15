@@ -1,3 +1,6 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .wrapper {
   display: grid;
   grid-template-columns: 25vw 75vw;
@@ -6,11 +9,23 @@
   overflow: hidden;
 }
 
+.logo_backdrop_mobile {
+  display: none;
+}
+
+.logo_container_mobile {
+  display: none;
+}
+
+.menu_list_mobile {
+  display: none;
+}
+
 .side_content {
   grid: side;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 30% 70%;
+  grid-template-rows: 35% 65%;
   grid-template-areas: 
     "logo"
     "list";
@@ -19,6 +34,7 @@
       grid-area: logo;
       width: 140%;
       margin-left: -15%;
+      margin-top: 2vh;
       cursor: pointer;
       
       > div {
@@ -30,6 +46,10 @@
         width: 100% !important;
         position: relative !important;
         height: unset !important;
+      }
+
+      &_small {
+        display: none;
       }
     }
     
@@ -79,5 +99,89 @@
   &_img {
     width: 100%;
     height: unset;
+  }
+}
+
+@include media('small') {
+  .wrapper {
+    grid-template-columns: 100vw;
+    grid-template-areas: "image";
+  }
+
+  .side_content {
+    display: none;
+  }
+
+  .logo_backdrop_mobile {
+    display: block;
+    position: absolute;
+    z-index: 50;
+    top: 3vh;
+    left: 10px;
+    width: 180px;
+    height: 180px;
+    background-color: $backdrop-color;
+    border-radius: 200px;
+  }
+
+  .logo_container_mobile, .logo_home {
+    display: block;
+    position: absolute;
+    z-index: 55;
+    top: 3vh;
+    left: -20px;
+    width: 250px;
+    height: 250px;
+
+    > div {
+      position: unset !important;
+    }
+    
+    &_img {
+      object-fit: contain;
+      width: 100% !important;
+      position: relative !important;
+      height: unset !important;
+    }
+  }
+
+  .menu_list_mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 60;
+
+    height: 100vh;
+    width: 100vw;
+
+    background: white;
+    list-style-type: none;
+    padding: 0;
+    overflow-x: scroll;
+
+    .logo_home {
+      top: 0;
+      left: auto;
+    }
+
+    li {
+      padding: 10px 0;
+      font-size: 0.85rem;
+      font-weight: 400;
+      cursor: pointer;
+
+      &:not(.selected) {
+        opacity: 0.3;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
   }
 }
