@@ -1,13 +1,14 @@
-$backdrop-color: rgba(255, 255, 255, 0.7);
+@import '../styles/mixins.scss';
+@import '../styles/variables.scss';
 
 .logo_backdrop {
   position: absolute;
   z-index: 50;
-  top: 7.5vh;
-  left: 90px;
+  top: 2vh;
+  left: 15px;
 
-  width: 250px;
-  height: 250px;
+  width: 310px;
+  height: 310px;
 
   background-color: $backdrop-color;
   border-radius: 200px;
@@ -16,10 +17,10 @@ $backdrop-color: rgba(255, 255, 255, 0.7);
 .logo_container {
   position: absolute;
   z-index: 55;
-  top: 7.5vh;
-  left: 40px;
+  top: 2vh;
+  left: -48px;
 
-  width: 360px; 
+  width: 448px; 
   height: 255px;
 }
 
@@ -60,5 +61,34 @@ $backdrop-color: rgba(255, 255, 255, 0.7);
 
   &_text {
     text-align: center;
+  }
+}
+
+@include media('small') {
+  .logo_backdrop {
+    top: 3vh;
+    left: 10px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .logo_container {
+    top: 3vh;
+    left: -20px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .image_container_img {
+    object-fit: cover;
+    height: 95vh !important;
+  }
+
+  .title_container {
+    top: unset;
+    bottom: 22vh;
+    width: 115px;
+    height: 115px;
+    font-size: 0.85em;
   }
 }
