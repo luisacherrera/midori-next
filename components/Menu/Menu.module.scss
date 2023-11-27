@@ -1,0 +1,37 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.menu_list {
+  list-style-type: none;
+  font-size: 1.15rem;
+
+  padding: 0;
+  margin-left: 10%;
+
+  overflow-x: scroll;
+  z-index: 100;
+
+  li {
+    padding: 10px 0 10px 20px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:not(.selected) {
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  @include media('small') {
+    margin-left:5%;
+    font-size: 1.35rem;
+
+    li {
+      font-size: 1.05rem;
+    }
+  }
+}

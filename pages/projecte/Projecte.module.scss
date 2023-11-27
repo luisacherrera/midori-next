@@ -52,31 +52,9 @@
         display: none;
       }
     }
-    
-    .menu_list {
+
+    Menu {
       grid-area: list;
-      list-style-type: none;
-
-      padding: 0;
-      margin-left: 10%;
-
-      overflow-x: scroll;
-      z-index: 100;
-
-      li {
-        padding: 10px 0;
-        font-size: 0.85rem;
-        font-weight: 400;
-        cursor: pointer;
-
-        &:not(.selected) {
-          opacity: 0.3;
-
-          &:hover {
-            opacity: 0.6;
-          }
-        }
-      }
     }
 }
 
@@ -113,18 +91,25 @@
   }
 
   .logo_backdrop_mobile {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     z-index: 50;
-    top: 3vh;
-    left: 10px;
-    width: 180px;
-    height: 180px;
+    top: unset;
+    bottom: 22vh;
+    right: 5vw;
+    width: 115px;
+    height: 115px;
     background-color: $backdrop-color;
     border-radius: 200px;
+
+    h2 {
+      font-size: 1.25em;
+    }
   }
 
-  .logo_container_mobile, .logo_home {
+  .logo_home {
     display: block;
     position: absolute;
     z-index: 55;
@@ -165,23 +150,8 @@
     overflow-x: scroll;
 
     .logo_home {
-      top: 0;
-      left: auto;
-    }
-
-    li {
-      padding: 10px 0;
-      font-size: 0.85rem;
-      font-weight: 400;
-      cursor: pointer;
-
-      &:not(.selected) {
-        opacity: 0.3;
-
-        &:hover {
-          opacity: 0.6;
-        }
-      }
+      top: 1vh;
+      left: -20px;
     }
   }
 }

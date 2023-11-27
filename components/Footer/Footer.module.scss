@@ -34,8 +34,8 @@
   }
 
   @include media('small') {
-    grid-template-columns: 85vw 15vw;
-    grid-template-areas: "mail social";
+    display: flex;
+    justify-content: center;
 
     &_email {
       padding-left: 35px;
