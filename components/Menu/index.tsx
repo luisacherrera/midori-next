@@ -1,6 +1,8 @@
 import { NextPage } from "next";
+import Image from 'next/image';
 import { MenuList, Project } from "../../models";
 import styles from './Menu.module.scss';
+import { MouseEvent, MouseEventHandler, useState } from "react";
 
 interface MenuProps {
   currentProjectId: string | string[] | undefined;
@@ -24,21 +26,38 @@ const Menu: NextPage<MenuProps> = ({currentProjectId, projects, onItemSelected}:
     return acc
 }, {} as MenuList);
 
-  const handleNavigation = (id: string) => {
-    onItemSelected(id)
+  const handleNavigation = (id: string, event: MouseEvent) => {
+    event.stopPropagation();
+    onItemSelected(id);
   };
+
+  const [openCategories, setCategories] = useState<string[]>([]);
+
+  const handleOpenCategories = (category: string) => {
+    openCategories.includes(category) ? 
+      setCategories(openCategories.filter(open => open !== category)) : 
+      setCategories([...openCategories, category]);
+  }
 
   return (
     <>
-      <div>
+      <div className={styles.wrapper}>
         {
           Object.keys(menuCategories).map((category, i) =>
-            <ul className={styles.menu_list} key={i}>
-              {category}
+            <ul 
+              onClick={()=>handleOpenCategories(category)} 
+              className={ openCategories.includes(category) ? `${styles.menu_list} ${styles.menu_list_open}` : `${styles.menu_list}`}
+              key={i}>
+              <span>
+                {category}
+                <div className={styles.menu_list_show_more}>
+                  <Image src="/icons/show-more.png" alt="show more" layout="fill"/>
+                </div>
+              </span>
               {
                 menuCategories[category].map(project =>
                   <li 
-                    onClick={()=>handleNavigation(project.id)} 
+                    onClick={(event)=>handleNavigation(project.id, event)} 
                     key={project.id}
                     className={ project.id === currentProjectId ? `${styles.selected}` : '' }
                   >
