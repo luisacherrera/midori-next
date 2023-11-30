@@ -1,0 +1,51 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.logo_backdrop {
+  position: absolute;
+  z-index: 50;
+  top: 2vh;
+  left: 15px;
+
+  width: 20vw;
+  height: 20vw;
+
+  background-color: $backdrop-color;
+  border-radius: 200px;
+}
+
+.logo_container {
+  position: absolute;
+  z-index: 55;
+  top: 4vh;
+  left: -1vw;
+
+  width: 25vw; 
+
+  > div {
+    position: unset !important;
+  }
+
+  &_img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
+@include media('small') {
+  .logo_backdrop {
+    top: 3vh;
+    left: 10px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .logo_container {
+    top: 3vh;
+    left: -20px;
+    width: 250px;
+    height: 250px;
+  }
+}

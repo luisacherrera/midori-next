@@ -4,10 +4,11 @@ import Image from 'next/image';
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Footer from "../../components/Footer";
+import Menu from "../../components/Menu";
+import MidoriLogo from "../../components/MidoriLogo";
 import projectes from "../../lib/projectes";
 import { Project } from "../../models";
 import styles from "./Projecte.module.scss";
-import Menu from "../../components/Menu";
 
 const Projecte: NextPage = () => {
   const projects: Project[] = projectes;
@@ -52,7 +53,7 @@ const Projecte: NextPage = () => {
 
         <div className={styles.side_content}>
           <div onClick={()=>router.push('/')} className={styles.logo_container}>
-            <Image className={styles.logo_container_img} src='/logos/midori_logomaster.png' alt='midori logo' layout='fill'/>
+            <MidoriLogo hasBackdrop={false}/>
           </div>
           <Menu currentProjectId={id} projects={projects} onItemSelected={handleNavigation}/>
         </div>

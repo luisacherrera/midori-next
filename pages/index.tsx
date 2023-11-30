@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
+import MidoriLogo from '../components/MidoriLogo';
 import projectesPortada from '../lib/portada';
 import { ProjectCover } from '../models';
 import styles from '../styles/Home.module.scss';
@@ -22,11 +23,8 @@ const Home: NextPage = () => {
   }, 4000);
 
   return (
-    <>
-      <div className={styles.logo_backdrop}></div>
-      <div className={styles.logo_container}>
-        <Image className={styles.logo_container_img} src='/logos/midori_logomaster.png' alt='midori logo' layout='fill'/>
-      </div>
+    <div className={styles.wrapper}>
+      <MidoriLogo/>
       <div className={styles.title_container}>
         <p className={styles.title_container_text}>{currentProject.projectName}</p>
       </div>
@@ -34,7 +32,7 @@ const Home: NextPage = () => {
         <Image onClick={()=>router.push('/projecte?id=' + currentProject.id)} className={styles.image_container_img} src={currentProject.imageSource} alt='project image' layout='fill'/>
       </div>
       <Footer></Footer>
-    </>
+    </div>
   )
 }
 

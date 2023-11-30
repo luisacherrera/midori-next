@@ -1,35 +1,17 @@
 @import '../styles/mixins.scss';
 @import '../styles/variables.scss';
 
-.logo_backdrop {
-  position: absolute;
-  z-index: 50;
-  top: 2vh;
-  left: 15px;
-
-  width: 310px;
-  height: 310px;
-
-  background-color: $backdrop-color;
-  border-radius: 200px;
-}
-
-.logo_container {
-  position: absolute;
-  z-index: 55;
-  top: 2vh;
-  left: -48px;
-
-  width: 448px; 
-  height: 255px;
+.wrapper {
+  overflow: hidden;
 }
 
 .image_container {
   width: 100%;
+  height: 100vh;
   cursor: pointer;
 }
 
-.logo_container, .image_container {
+.image_container {
   > div {
     position: unset !important;
   }
@@ -65,20 +47,6 @@
 }
 
 @include media('small') {
-  .logo_backdrop {
-    top: 3vh;
-    left: 10px;
-    width: 180px;
-    height: 180px;
-  }
-
-  .logo_container {
-    top: 3vh;
-    left: -20px;
-    width: 250px;
-    height: 250px;
-  }
-
   .image_container_img {
     object-fit: cover;
     height: 95vh !important;
