@@ -51,7 +51,7 @@ const Menu: NextPage<MenuProps> = ({currentProjectId, projects, onItemSelected}:
               <span>
                 {category}
                 <div className={styles.menu_list_show_more}>
-                  <Image src="/icons/show-more.png" alt="show more" layout="fill"/>
+                  <Image src="/icons/show_more.png" alt="show more" layout="fill"/>
                 </div>
               </span>
               {
@@ -72,8 +72,5 @@ const Menu: NextPage<MenuProps> = ({currentProjectId, projects, onItemSelected}:
     </>
   )
 }
-
-Menu.getInitialProps
-
 
 export default Menu;

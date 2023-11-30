@@ -32,21 +32,8 @@
 
     .logo_container {
       grid-area: logo;
-      width: 140%;
-      margin-left: -15%;
-      margin-top: 2vh;
+      width: 100%;
       cursor: pointer;
-      
-      > div {
-        position: unset !important;
-      }
-    
-      &_img {
-        object-fit: contain;
-        width: 100% !important;
-        position: relative !important;
-        height: unset !important;
-      }
 
       &_small {
         display: none;

@@ -6,8 +6,18 @@
   overflow: scroll;
   z-index: 100;
 
+  overflow-x: hidden;
+
   @include media('small') {
     height: 70%;
+  }
+
+  /* Hide scrollbars */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -18,7 +28,7 @@
   padding: 0;
   margin-left: 10%;
 
-  overflow-x: scroll;
+  overflow-x: hidden;
 
   cursor: pointer;
 
@@ -30,11 +40,10 @@
   &_show_more {
     position: relative;
 
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
   }
 
   li {
@@ -43,7 +52,7 @@
 
   &_open {
     .menu_list_show_more {
-      transform: rotate(180deg);
+      transform: rotate(90deg);
       margin-top: 0;
     }
 
