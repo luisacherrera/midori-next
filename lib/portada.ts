@@ -21,6 +21,11 @@ export const projectesPortada: ProjectCover[] = [
     imageSource: `/photos/espai-ciencia/Stands Espai Ciencia (Salo de l'Ensenyament 2018)(1).jpg`,
     projectName: `Stands Espai Ciencia (Salo de l'Ensenyament 2018)`,
   },
+  {
+    id: `espai-obert`,
+    imageSource: `/photos/espai-ciencia/Stands Espai Ciencia (Salo de l'Ensenyament 2018)(2).jpg`,
+    projectName: `Stands Espai Ciencia (Salo de l'Ensenyament 2018)`,
+  },
 ];
 
 export default projectesPortada;
