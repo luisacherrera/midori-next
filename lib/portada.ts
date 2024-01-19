@@ -23,7 +23,7 @@ export const projectesPortada: ProjectCover[] = [
   },
   {
     id: `espai-obert`,
-    imageSource: `/photos/espai-ciencia/Stands Espai Ciencia (Salo de l'Ensenyament 2018)(2).jpg`,
+    imageSource: `/photos/espai-obert/anunciacion.jpeg`,
     projectName: `Stands Espai Ciencia (Salo de l'Ensenyament 2018)`,
   },
 ];
